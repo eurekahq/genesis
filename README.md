@@ -2,7 +2,7 @@
 
 This is a (very opinionated) starting point for a Slim Framework 4 application that bundles together a few useful packages. Use this skeleton application to quickly setup and start working on a new Slim Framework 4 application. This application uses the latest Slim 4 with Slim PSR-7 implementation and PHP-DI container implementation. It also uses the Monolog logger.
 
-This application was itself built atop [slim/slim-skeleton](https://github.com/slim/slim-skeleton).
+This application was itself built atop [slimphp/slim-skeleton](https://github.com/slim/slim-skeleton).
 
 ## Get Started
 
