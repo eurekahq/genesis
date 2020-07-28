@@ -20,7 +20,7 @@ $dependencies = require __DIR__ . '/../app/dependencies.php';
 $dependencies($containerBuilder);
 
 // Set up doctrine
-$doctrine = require __DIR__ . '/../bootstrap.php';
+$doctrine = require __DIR__ . '/../app/bootstrap.php';
 $doctrine($containerBuilder);
 
 // Set up repositories

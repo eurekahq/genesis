@@ -2,15 +2,23 @@
 
 declare(strict_types=1);
 
+use DI\Container;
 use DI\ContainerBuilder;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 use Monolog\Processor\UidProcessor;
 use Psr\Container\ContainerInterface;
 use Psr\Log\LoggerInterface;
+use Slim\App;
+use Slim\Factory\AppFactory;
 
 return function (ContainerBuilder $containerBuilder) {
     $containerBuilder->addDefinitions([
+        App::class => function (Container $container) {
+            AppFactory::setContainer($container);
+            return AppFactory::create();
+        },
+
         LoggerInterface::class => function (ContainerInterface $c) {
             $settings = $c->get('settings');
 

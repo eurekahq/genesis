@@ -3,12 +3,14 @@
 declare(strict_types=1);
 
 use App\Domain\User\UserRepository;
-use App\Infrastructure\Persistence\User\InMemoryUserRepository;
+use App\Factory\RepositoryFactory;
 use DI\ContainerBuilder;
 
+use function DI\factory;
+
 return function (ContainerBuilder $containerBuilder) {
-    // Here we map our UserRepository interface to its in memory implementation
+    // Get an EntityRepository from our RepositoryFactory
     $containerBuilder->addDefinitions([
-        UserRepository::class => \DI\autowire(InMemoryUserRepository::class),
+        UserRepository::class => factory(RepositoryFactory::class),
     ]);
 };
