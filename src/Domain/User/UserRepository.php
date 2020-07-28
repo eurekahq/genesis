@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Domain\User;
@@ -12,7 +13,8 @@ class UserRepository extends EntityRepository
      * @return User
      * @throws UserNotFoundException
      */
-    public function findUserOfId(int $id): User {
+    public function findUserOfId(int $id): User
+    {
         return $this->findOneBy(['id' => $id]);
     }
 }
