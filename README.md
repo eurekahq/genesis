@@ -99,7 +99,7 @@ This application adheres to the following PSR Standards:
 
 * [PSR-1 Basic Coding Standard](https://php-fig.org/psr/psr-1)
 * [PSR-3 Logger Interface](https://php-fig.org/psr/psr-3)
-* [PSR-4 Autoloading Standard]https://php-fig.org/psr/psr-4)
+* [PSR-4 Autoloading Standard](https://php-fig.org/psr/psr-4)
 * [PSR-7 HTTP Message Interface](https://php-fig.org/psr/psr-7)
 * [PSR-11 Container Interface](https://php-fig.org/psr/psr-11)
 * [PSR-12 Extended Coding Style](https://php-fig.org/psr/psr-12)
