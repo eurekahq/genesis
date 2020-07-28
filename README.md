@@ -109,7 +109,7 @@ These PSR standards may be supported in a future release:
 
 * [PSR-6 Caching Interface](https://php-fig.org/psr/psr-6)
 * [PSR-13 Hypermedia Links](https://php-fig.org/psr/psr-13)
-* [PSR-14 Event Dispatcher]https://php-fig.org/psr/psr-14)
+* [PSR-14 Event Dispatcher](https://php-fig.org/psr/psr-14)
 * [PSR-16 Simple Cache](https://php-fig.org/psr/psr-16)
 * [PSR-17 HTTP Factories](https://php-fig.org/psr/psr-17)
 * [PSR-18 HTTP Client](https://php-fig.org/psr/psr-18)
