@@ -11,16 +11,19 @@ return function (ContainerBuilder $containerBuilder) {
         'settings' => [
             'displayErrorDetails' => true, // TODO Disable in production
             'logger' => [
-                'name' => 'slim-app',
-                'path' => isset($_ENV['docker']) ? 'php://stdout' : __DIR__ . '/../logs/app.log',
-                'level' => Logger::DEBUG,
+                'name' => $_ENV['LOGGER_NAME'],
+                'path' => isset($_ENV['docker']) ? 'php://stdout' : __DIR__ . '/../' . $_ENV['LOGGER_PATH'],
+                'level' => constant(sprintf('%s::%s', Logger::class, $_ENV['LOGGER_LEVEL'])),
             ],
             'doctrine' => [
+                // TODO Disable in production
                 'dev_mode' => true,
                 // TODO Enable in production
                 'cache_dir' => null,
                 // 'cache_dir' => __DIR__ . '/../var/cache/doctrine',
+                // TODO Enable in production
                 'proxy_dir' => null,
+                // 'proxy_dir' => __DIR__ . '/../var/proxies',
                 'metadata_dirs' => [__DIR__ . '/../src/Domain/'],
                 'connection' => [
                     'driver'    => $_ENV['DB_DRIVER'],
