@@ -1,88 +1,85 @@
 <?php
-declare(strict_types=1);
 
 namespace App\Domain\User;
 
-use JsonSerializable;
+use Doctrine\ORM\Mapping as ORM;
 
-class User implements JsonSerializable
+/**
+ * @ORM\Entity(repositoryClass="UserRepository")
+ * @ORM\Table(name="users")
+ */
+class User
 {
     /**
-     * @var int|null
+     * @ORM\Id
+     * @ORM\Column(type="bigint")
+     * @ORM\GeneratedValue
+     * @var int
      */
-    private $id;
-
+    protected $id;
     /**
+     * @ORM\Column(type="string")
      * @var string
      */
-    private $username;
-
+    protected $first_name;
     /**
+     * @ORM\Column(type="string")
      * @var string
      */
-    private $firstName;
-
+    protected $last_name;
     /**
+     * @ORM\Column(type="string")
      * @var string
      */
-    private $lastName;
-
+    protected $email;
     /**
-     * @param int|null  $id
-     * @param string    $username
-     * @param string    $firstName
-     * @param string    $lastName
+     * @ORM\Column(type="string")
+     * @var string
      */
-    public function __construct(?int $id, string $username, string $firstName, string $lastName)
-    {
-        $this->id = $id;
-        $this->username = strtolower($username);
-        $this->firstName = ucfirst($firstName);
-        $this->lastName = ucfirst($lastName);
-    }
+    protected $password;
 
-    /**
-     * @return int|null
-     */
-    public function getId(): ?int
+    public function getId()
     {
         return $this->id;
     }
 
-    /**
-     * @return string
-     */
-    public function getUsername(): string
+    public function getFirstName()
     {
-        return $this->username;
+        return $this->first_name;
     }
 
-    /**
-     * @return string
-     */
-    public function getFirstName(): string
+    public function setFirstName($first_name)
     {
-        return $this->firstName;
+        $this->first_name = $first_name;
     }
 
-    /**
-     * @return string
-     */
-    public function getLastName(): string
+    public function getLastName()
     {
-        return $this->lastName;
+        return $this->last_name;
     }
 
-    /**
-     * @return array
-     */
-    public function jsonSerialize()
+    public function setLastName($last_name)
     {
-        return [
-            'id' => $this->id,
-            'username' => $this->username,
-            'firstName' => $this->firstName,
-            'lastName' => $this->lastName,
-        ];
+        $this->last_name = $last_name;
+    }
+
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
+
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+    public function setPassword($password)
+    {
+        $this->password = $password;
     }
 }
